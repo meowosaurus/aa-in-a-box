@@ -1,0 +1,18 @@
+services:
+  aa-dev:
+    container_name: aa-dev
+    build: .
+    tty: true
+    environment:
+      - DJANGO_HOST=0.0.0.0
+      - DJANGO_PORT=8000
+    volumes:
+    - './plugins:/opt/aa-dev/plugins'
+    ports:
+      - '8000:8000'
+    networks:
+      - public 
+
+networks:
+  public:
+    external: true
